@@ -116,6 +116,7 @@ namespace CookingPrototype.Controllers {
 			TotalCustomersGeneratedChanged?.Invoke();
 			 
 			GameplayController.Instance.OrdersTarget = totalOrders - 2;
+			GameplayController.Instance.StartWindow?.Show();
 		}
 
 		/// <summary>
@@ -139,8 +140,6 @@ namespace CookingPrototype.Controllers {
 		/// <param name="order">Заказ, который пытаемся отдать</param>
 		/// <returns>Флаг - результат, удалось ли успешно отдать заказ</returns>
 		public bool ServeOrder(Order order) {
-			
-			
 			CustomerPlace placeToServe = CustomerPlaces
 				.Where(go => go.CurCustomer != null)
 				.OrderBy(place => place.CurCustomer.WaitTime)

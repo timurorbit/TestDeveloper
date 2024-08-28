@@ -14,6 +14,7 @@ namespace CookingPrototype.Controllers {
 		public GameObject TapBlock   = null;
 		public WinWindow  WinWindow  = null;
 		public LoseWindow LoseWindow = null;
+		public StartWindow StartWindow;
 
 
 		int _ordersTarget = 0;
@@ -41,6 +42,14 @@ namespace CookingPrototype.Controllers {
 			if ( Instance == this ) {
 				Instance = null;
 			}
+		}
+
+		public void PauseGame() {
+			Time.timeScale = 0;
+		}
+
+		public void UnPauseGame() {
+			Time.timeScale = 1f;
 		}
 
 		void Init() {
